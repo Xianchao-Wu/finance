@@ -146,19 +146,6 @@ cov(rt)*ydays
 sprintf('corr(rt):');
 corr(rt)
 
-%%%%%%%%%%%%%%%
-% scatter plot
-%%%%%%%%%%%%%%%
-
-
-figure(4);
-scatter(rt(:,1),rt(:,2));
-grid on;
-xlabel('BPI');
-ylabel('TPX');
-disp('type any key to continue');
-pause;
-
 %%%%%%%%%%%
 % normalization
 %%%%%%%%%%
@@ -190,8 +177,10 @@ end;
 
 figure(5);
 plot(q,rhov);grid on;legend('-BPI vs. TPX','Location','Best');
-xlabel(strcat('-',Xname));
-ylabel(Yname); %strcat - join two strings together
+%xlabel(strcat('-',Xname));
+%ylabel(Yname); %strcat - join two strings together
+xlabel('[-1,1] interval with 200 points');
+ylabel('corr');
 
 disp('Type any key!')
 pause;
@@ -209,21 +198,5 @@ xlabel(strcat(Xname,' vs. ', Yname));ylabel('Ex.Corr');
 disp('Type any key to continue');
 pause;
 
-figure(7);
-scatterhist(X,Y); 
-grid on;
-title('Scatter plot');
-xlabel(Xname);
-ylabel(Yname);
-legend('X vs. Y','Location','NorthWest');% up-left corner to show legend
-disp('type any key to continue!');
-pause;
-
-figure(8); 
-scatterhist(-X, Y); 
-grid on; % scatter + histgram a combination of two types of figures
-title('Scatter plot'); 
-xlabel(strcat('-', Xname)); 
-ylabel(Yname);
-legend('-X vs. Y', 'Location', 'NorthWest'); 
+?
 
