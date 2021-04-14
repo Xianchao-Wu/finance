@@ -85,7 +85,7 @@ plot(Xt);hold on;
 plot(Xt2);plot(Xt3);plot(Xt4);
 grid on;title('Mean Reversion process');
 legend('alp=20.0, Xbar=0.1', 'alp=2.0, Xbar=0.1', ...
-    'alp=20.0, Xbar=0.5', 'alp=2.0, Xbar=0.5')
+    'alp=20.0, Xbar=0.5', 'alp=2.0, Xbar=0.5', 'Location','Best');
 
 
 
