@@ -286,16 +286,16 @@ title(title3);
 disp('type any key to continue');
 pause;
 
-return;
+%return;
 
 figure(4);
 plot3(bt(:,1),bt(:,2),bt(:,3),'.');
 title('Factor Loadings');
-xlabel('FL1');ylabel('FL2');zlabel('FL3');
+xlabel('FactorLoading1');ylabel('FL2');zlabel('FL3');
 
 disp('type any key to continue');
 pause;
-return;
+%return;
 
 
 
@@ -314,7 +314,8 @@ return;
 
 switch Dataset
 	case 'TSE33'
-		I=[29 33];% sub-matrix
+		%I=[29 33];% sub-matrix
+        I=[6 10];
 	case 'TPX500'
 		I=[29 30];% sub-matrix
 	case 'JPX400'
@@ -323,17 +324,27 @@ switch Dataset
 		I=[i1 i2];% sub-matrix
 end;
 
-[G]=chol(Sig(I,I));
-L=G'
+disp('Sig(I,I)');
+disp(Sig(I,I));
+%    3.7609    2.9386
+%    2.9386    4.5048
+[G]=chol(Sig(I,I)); % size(Sig)=(11, 11)
+L=G';
 
-mu=mean(rt(:,I));mu=mu';
+mu=mean(rt(:,I));
+mu=mu';
 
 N=1000;% # of scenarios
 
-Z=randn(N,length(I));
-Rt=repmat(mu,1,N)+L*Z';
+Z=randn(N,length(I)); % (1000, 2)
+Rt=repmat(mu,1,N) + L*Z';
+% use, mu(2,1) -> repmat -> (2, 1000)
+% L=(2,2)
+% Z'=(2,1000)
+% LZ' = (2,1000)
+% Rt = (2,1000)
 
-Rt=Rt';
+Rt=Rt'; % (1000,2)
 figure(5);
 scatter(Rt(:,1),Rt(:,2));
 grid on;
