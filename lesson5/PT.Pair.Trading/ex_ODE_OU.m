@@ -37,8 +37,9 @@ figure(2);
 % ???
 t2=0:0.001:0.25;
 yref=ybar + (y0-ybar)*exp(-kap*t2);
-%plot(t2, yref, t, y);
-plot(t2, yref);
+plot(t2, yref, t, y);
+legend('equation-based-ref', 'ode45-matlab', 'Location', 'best');
+%plot(t2, yref);
 %plot(t, y);
 grid on;
 title(sprintf('reference (directly computed by equation) curve, and y0=%d', y0));

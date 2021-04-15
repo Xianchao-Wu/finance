@@ -28,4 +28,4 @@ y0=0.01;% initial value
 figure(1);plot(t,y);grid();
 title('dy/dx=0.1*y^2-1*y+1');
 xlabel('x');
-ylabel('dy/dx');
+ylabel('y');
